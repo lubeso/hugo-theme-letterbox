@@ -2,3 +2,6 @@ module:
   hugoVersion:
     extended: false
     min: "v0.116.0"
+
+  imports:
+    - path: github.com/lubeso/hugo-theme-base
