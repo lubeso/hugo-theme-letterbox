@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  @apply box-border;
+  @apply font-serif;
+  @apply bg-slate-50 text-slate-950 dark:bg-slate-900 dark:text-slate-100;
+}
+
+body {
+  @apply px-4 leading-8;
+}
+
+a {
+  @apply underline underline-offset-auto;
+}
