@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <h2 class="min-h-fit p-4 text-center text-bold text-4xl">
+    {{ .Title }}
+  </h2>
+
+  {{- with .Date -}}
+    {{- $dateMachine := . | time.Format "2006-01-02T15:04:05-07:00" -}}
+    {{- $dateHuman := . | time.Format ":date_long" -}}
+    <time class="text-center text-2xl" datetime="{{ $dateMachine }}">
+      {{ $dateHuman }}
+    </time>
+  {{- end -}}
+
+  {{- partial "canvas" . }}
+  {{ .Content }}
+  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  {{- with resources.Get (printf "/ts/%s.ts" .File.ContentBaseName) }}
+    {{- partial "typescript" . }}
+  {{- end }}
+{{ end }}
